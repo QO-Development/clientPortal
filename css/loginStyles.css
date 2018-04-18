@@ -1,0 +1,43 @@
+.loginBackground {
+    background: url("/assets/background-min.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-color: #7e7e7e;
+}
+
+.Absolute-Center.is-Responsive {
+    width: 50%; 
+    height: 320px;
+    min-width: 320px;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: rgba(121, 188, 67, 0.6);
+}
+
+.Absolute-Center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+div.well{
+    height: 250px;
+}
+
+.header{
+    color: white;
+    text-align: center;
+    opacity: 1;
+}
+
+.loginLink{
+    color: white;
+}
+
+.loginLink:hover {
+    color: #2E0854;
+    text-decoration: none;
+}

@@ -1,0 +1,189 @@
+<link rel="stylesheet" href="/css/serviceRequestForm.css">
+
+<script>
+  window.initMap = function () {
+    window.map = null;
+    window.marker = null;
+    window.gecoder = null;
+    var uluru = {
+      lat: 36,
+      lng: -119
+    };
+    window.map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: uluru
+    });
+    window.marker = new google.maps.Marker({
+      position: uluru,
+      map: window.map
+    });
+    window.geocoder = new google.maps.Geocoder();
+  };
+</script>
+
+<!-- Start Content -->
+<div id="main" class="clearfix">
+  <div class="container">
+    <div class="row mb-4">
+
+      <form method="POST" action="/clientPortal" enctype="multipart/form-data" id="service-request-form">
+
+        <div class="col-md">
+          <div class="mb-2 mt-4 ml-3  mb-3 form-group" id="checkbox">
+            <label class="container-checkbox text-white">Emergency
+              <input class="checkbox" type="radio" name="service_type" value="emergency" required>
+              <span class="checkmark"></span>
+            </label>
+            <label class="container-checkbox text-white">Same Day
+              <input class="checkbox" type="radio" name="service_type" value="same_day">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container-checkbox text-white">Next Day
+              <input class="checkbox" type="radio" name="service_type" value="next_day">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div id="manualEntryForm">
+            <div class="form-group">
+              <label for="manual1" class="sr-only">Store Number</label>
+              <input type="text" class="form-control border-success input-fields" id="manual1" name="manualStoreNumber" placeholder="Store Number">
+              <span class="fa fa-location-arrow iconspan"></span>
+            </div>
+            <div class="form-group">
+              <label for="manual2" class="sr-only">Store Address 1</label>
+              <input type="text" class="form-control border-success input-fields" id="manual2" name="address1" placeholder="Store Address 1">
+              <span class="fa fa-map-marker iconspan"></span>
+            </div>
+            <div class="form-group">
+              <label for="manual3" class="sr-only">Store Address 2</label>
+              <input type="text" class="form-control border-success input-fields" id="manual3" name="address2" placeholder="Store Address 2 (Optional)">
+              <span class="fa fa-map-marker iconspan"></span>
+            </div>
+            <div class="form-group">
+              <label for="manual4" class="sr-only">City</label>
+              <input type="text" class="form-control border-success input-fields" id="manual4" name="city" placeholder="City">
+              <span class="fa fa-globe iconspan"></span>
+            </div>
+            <div class="form-group">
+              <label for="manual5" class="sr-only">State</label>
+              <input type="text" class="form-control border-success input-fields" id="manual5" name="state" placeholder="State">
+              <span class="fa fa-globe iconspan"></span>
+            </div>
+            <div class="form-group">
+              <label for="manual6" class="sr-only">Zip</label>
+              <input type="text" class="form-control border-success input-fields" id="manual6" name="zip" placeholder="Zip">
+              <span class="fa fa-globe iconspan"></span>
+            </div>
+            <div class="form-group">
+              <label for="manual7" class="sr-only">Phone Number</label>
+              <input type="text" class="form-control border-success input-fields" id="manual7" name="phoneNumber" placeholder="Phone Number">
+              <span class="fa fa-phone iconspan"></span>
+            </div>
+          </div>
+
+          <div class="form-group" id="storeNameNumber">
+            <label for="Input1" class="sr-only">Store Name/Number</label>
+            <input type="text" class="form-control border-success input-fields" id="Input1" name="store" required placeholder="Store Name/Number"
+              autocomplete="off">
+            <span class="fa fa-globe iconspan"></span>
+          </div>
+          <div class="form-group">
+            <label for="Input2" class="sr-only">Person of Contact</label>
+            <input type="text" class="form-control border-success input-fields" id="Input2" required name="person_of_contact" placeholder="Site Contact">
+            <span class="fa fa-user iconspan"></span>
+          </div>
+          <div class="form-group">
+            <label for="Select" class="sr-only">Trade</label>
+            <select class="form-control border-success input-fields" id="Select" name="trade" required>
+              <option selected value="">Select Trade</option>
+              <option>Appliances</option>
+              <option>Asphalt/Concrete</option>
+              <option>Audio/Visual</option>
+              <option>Ceilings</option>
+              <option>Data & Voice</option>
+              <option>Door</option>
+              <option>Electrical</option>
+              <option>Elevator</option>
+              <option>Fire/Life Safety</option>
+              <option>Flooring</option>
+              <option>Gate/Overhead Door/Dock</option>
+              <option>General Contractor</option>
+              <option>Glass & Windows</option>
+              <option>Graphics</option>
+              <option>Handyman</option>
+              <option>HVAC/Refrigeration</option>
+              <option>Janitorial</option>
+              <option>Landscaping/Parking Lot</option>
+              <option>Locksmith</option>
+              <option>Millwork/Fixtures</option>
+              <option>Mold/Air Quality</option>
+              <option>Pest Control</option>
+              <option>Plumbing</option>
+              <option>Roofing</option>
+              <option>Security</option>
+              <option>Sewing</option>
+              <option>Signage</option>
+              <option>Snow Removal</option>
+              <option>Walls</option>
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Input3" class="sr-only">Attachments</label>
+            <input type="file" accept="image/*,application/pdf" class="form-control border-success input-fields" id="Input3" name="attachment">
+            <span class="btn btn-outline-light fa fa-camera iconspan"></span>
+          </div>
+          <div class="form-group">
+            <label for="Textarea" class="sr-only">Additional Notes</label>
+            <textarea placeholder="Additional Notes/DNE" class="form-control border-success input-notes-field" id="Textarea" name="notes"
+              required rows="8"></textarea>
+          </div>
+
+          <input type="hidden" name="store_address">
+          <input type="hidden" name="store_number">
+          <input type="hidden" name="store_found" value="false">
+          <button type="submit" style="float:right" class="btn btn-success mb-3">Submit</button>
+        </div>
+      </form>
+
+      <div class="col-md mt-5">
+        <div class="mapWrapper">
+          <div id="map">
+          </div>
+          <div class="placesOverlay">
+            <div class="cover_image">
+              <img src="">
+            </div>
+
+            <div class="store_name"></div>
+            <hr>
+
+            <div class="location_details">
+              <div class="address"> </div>
+              <div class="hours"></div>
+              <div class="phone"></div>
+
+              <a href="" target="_blank" id="openInGoogleMapsButton" class="open_in_maps btn btn-outline-dark btn-sm">Open in Google Maps</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe76nF1fK2-ASV2nXN6S8Bz57X4kil6qs&callback=initMap&libraries=places"></script>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- jQuery first -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.min.js"></script>
+<script src="/js/form.js"></script>
+<script src="/js/manualServiceRequest.js"></script>
+
+<!-- End Content -->

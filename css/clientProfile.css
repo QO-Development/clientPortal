@@ -1,0 +1,55 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  display: none; }
+
+.passwordCard {
+  margin-top: 10%;
+  background-color: #79bc43;
+  border-radius: 10px;
+  max-width: 400px;
+  min-width: 300px; }
+
+.infoHeader {
+  margin-top: 15px;
+  color: black;
+  background-color: white;
+  border: 2px solid #79bc43;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
+
+.infoBackground {
+  padding-top: 10px;
+  background-color: white;
+  border-bottom: 2px solid #79bc43;
+  border-left: 2px solid #79bc43;
+  border-right: 2px solid #79bc43;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; }
+
+.profileLink {
+  text-decoration: underline;
+  cursor: pointer; }
+
+.profileColumn {
+  text-align: center; }
+
+.bottomSpace {
+  margin-bottom: 25px; }
+
+.topSpace {
+  margin-top: 25px; }
+
+.formHeader {
+  color: white; }
+
+@media (max-width: 767.98px) {
+  .passwordCard {
+    width: 800px; } }
+
+/*# sourceMappingURL=clientProfile.css.map */

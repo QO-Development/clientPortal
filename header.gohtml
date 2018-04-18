@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>{{ .Title }}</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+
+  <!-- Font Awesome CSS -->
+  <script src="https://use.fontawesome.com/0576e91321.js"></script>
+
+  <link rel="stylesheet" href="/css/headerStyle.css">
+
+  <link rel="stylesheet" type="text/css" href="/css/clientPStyle.css">
+
+  <link rel="icon" type="images/png" href="/assets/bglogo-min.png" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a href="/clientPortal" class="navbar-brand">Client Portal</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item {{ .HomeActive }} ">
+              <a href="/clientPortal" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item {{ .JobsActive }}">
+              <a href="/clientJobs" class="nav-link">Jobs</a>
+            </li>
+            <li class="nav-item {{ .ProfileActive }}">
+              <a href="/clientProfile" class="nav-link">Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row imageRow">
+        <div class="col-4 d-none d-sm-block d-md-block d-lg-block">
+          <img src="/assets/bglogo-min.png" class="logoImage" alt="Branded Group" />
+        </div>
+        <div class="col-4 titleColumn">
+          <h1>{{ .Title }}</h1>
+        </div>
+        <div class="col-4 d-none d-sm-block d-md-block d-lg-block">
+          <img src="{{ .ImageSrc }}" class="logoImage" alt="Client Logo" />
+        </div>
+      </div>
+    </div>
+  </header>

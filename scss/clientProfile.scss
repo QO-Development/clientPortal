@@ -1,0 +1,69 @@
+$bgcolor: #79bc43;
+$borderRadius: 10px;
+
+.overlay {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    z-index: 2;
+    display: none;
+}
+
+.passwordCard {
+    margin-top: 10%;
+    background-color: $bgcolor;
+    border-radius: $borderRadius;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.infoHeader {
+    margin-top: 15px;
+    color: black;
+    background-color: white;
+    border: 2px solid $bgcolor;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+}
+
+.infoBackground {
+    padding-top: 10px;
+    background-color: white;
+    border-bottom: 2px solid $bgcolor;
+    border-left: 2px solid $bgcolor;
+    border-right: 2px solid $bgcolor;
+    border-bottom-left-radius: $borderRadius; 
+    border-bottom-right-radius: $borderRadius;
+}
+
+.profileLink {
+    text-decoration: underline;
+    cursor: pointer;
+    //background-color: red;
+    //max-width: 10px;
+}
+
+.profileColumn {
+    text-align: center;
+}
+
+.bottomSpace {
+    margin-bottom: 25px;
+}
+
+.topSpace {
+    margin-top: 25px;
+}
+
+.formHeader {
+    color: white;
+}
+
+@media (max-width: 767.98px) {
+    .passwordCard {
+        width: 800px;
+    }
+}

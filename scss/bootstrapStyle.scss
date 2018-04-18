@@ -1,0 +1,102 @@
+
+#overlay {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 100, 0, 0.7);
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+  
+#black {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+  
+
+
+/*
+
+$bg-color: #333; 
+$font-color: #fff; 
+$primary-color: #79bc43; 
+$dark-overlay: rgba(0,0,0,0.7);
+$font-size: 30px; 
+
+//Testing for fun 
+.overlay{
+    position: fixed; 
+    width: 50%; 
+    height: 50%; 
+    top: 0; 
+    left: 0; 
+    //right: 0; 
+    //bottom: 0; 
+    background-color: rgba(255,100,0,0.7);
+    cursor: pointer;
+    z-index: 2;
+    //Make the default overlay not display 
+    display: none;
+}
+
+body {
+    margin-top: 65px;
+    background:$bg-color; 
+    color:$font-color; 
+}
+
+.navbar {
+    border-bottom: $primary-color 3px solid;
+    opacity: 0.8;
+}
+
+.registerForm {
+    background-color: $primary-color;
+}
+
+#home-section{
+    background: url("/assets/social.jpg") no-repeat;
+    background-size: cover; 
+    //Fixes the background image to the back of the page. The image should not scroll with the page
+    background-attachment: fixed;
+    min-height: 700px;
+
+    .dark-overlay {
+        background-color: $dark-overlay;
+        position: absolute;
+        top:0; 
+        left:0; 
+        width: 100%; 
+        min-height:700px;
+        //Need to add the top margin here to make sure the overlay moves down and covers the photo 
+        margin-top: 65px;
+    }
+
+    .home-inner {
+        padding-top: 150px;
+    }
+
+    .card-form {
+        //opacity: 0.8;
+    }
+
+    .fa {
+        color: $primary-color;
+        background: white;
+        padding: 4px; 
+        border-radius: 5px; 
+        font-size: $font-size;
+    }
+}
+
+
+*/

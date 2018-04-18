@@ -1,0 +1,11 @@
+.invoicing-table-data input{
+	border: none;
+	margin: 0px;
+}
+
+.Custom_tablepenal .PROfile_penal a.active {
+	background: #79bc43;
+}
+thead.text {
+    background: rgba(121, 188, 68, 0.7);
+}
