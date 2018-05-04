@@ -4,4 +4,18 @@
 #manualEntryForm {
   display: none; }
 
+#service-request-form .tokenfield {
+  min-height: 38px;
+  font-size: 16px;
+  border-radius: 50px;
+  border: 1px solid #28a745; }
+#service-request-form .tokenfield .token .close {
+  color: #000; }
+#service-request-form #InputEmail-tokenfield {
+  min-width: 180px !important; }
+#service-request-form .tokenfield.focus, #service-request-form .has-warning .tokenfield.focus, #service-request-form .has-error .tokenfield.focus, #service-request-form .has-success .tokenfield.focus {
+  border-color: #80bdff;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+
 /*# sourceMappingURL=serviceRequestForm.css.map */

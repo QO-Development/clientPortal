@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="/css/serviceRequestForm.css">
+<link rel="stylesheet" href="/css/bootstrap-tokenfield.css">
 
 <script>
   window.initMap = function () {
@@ -94,6 +95,11 @@
             <span class="fa fa-user iconspan"></span>
           </div>
           <div class="form-group">
+            <label for="InputEmail" class="sr-only">Email Addresses</label>
+            <input type="text" class="form-control border-success input-fields" id="InputEmail" name="contact_emails" placeholder="Email Addresses" data-role="multiemail" >
+            <span class="fa fa-envelope iconspan"></span>
+          </div>
+          <div class="form-group">
             <label for="Select" class="sr-only">Trade</label>
             <select class="form-control border-success input-fields" id="Select" name="trade" required>
               <option selected value="">Select Trade</option>
@@ -185,5 +191,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.min.js"></script>
 <script src="/js/form.js"></script>
 <script src="/js/manualServiceRequest.js"></script>
+<script src="/js/bootstrap-tokenfield.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+
+    // Add multiple email address input field
+    $('#InputEmail')
+    .on('tokenfield:createtoken', function (e) {
+      var data = e.attrs.value.split('|')
+      e.attrs.value = data[1] || data[0]
+      e.attrs.label = data[1] ? data[0] + ' (' + data[1] + ')' : data[0]
+    })
+
+    .on('tokenfield:createdtoken', function (e) {
+      // Über-simplistic e-mail validation
+      var re = /\S+@\S+\.\S+/
+      var valid = re.test(e.attrs.value)
+      if (!valid) {
+        $(e.relatedTarget).addClass('invalid')
+      }
+    })
+
+    .on('tokenfield:edittoken', function (e) {
+      if (e.attrs.label !== e.attrs.value) {
+        var label = e.attrs.label.split(' (')
+        e.attrs.value = label[0] + '|' + e.attrs.value
+      }
+    })
+    .tokenfield();
+    
+  });
+</script>
 
 <!-- End Content -->
