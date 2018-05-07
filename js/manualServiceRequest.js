@@ -8,7 +8,8 @@ $(document).ready(function () {
         //Fade in required form elements 
         $("#manualEntryForm").fadeIn(300, function () {
             console.log("Complete in")
-        });
+        }).data('manualEntry', true);
+
         //TODO: Add 'required' attribute to form elements that were just displayed on page
         $("#manual1").prop('required', true);
         $("#manual2").prop('required', true);

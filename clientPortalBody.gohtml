@@ -45,7 +45,7 @@
             </label>
           </div>
 
-          <div id="manualEntryForm">
+          <div id="manualEntryForm" data-manual-entry="false">
             <div class="form-group">
               <label for="manual1" class="sr-only">Store Number</label>
               <input type="text" class="form-control border-success input-fields" id="manual1" name="manualStoreNumber" placeholder="Store Number">
@@ -192,36 +192,5 @@
 <script src="/js/form.js"></script>
 <script src="/js/manualServiceRequest.js"></script>
 <script src="/js/bootstrap-tokenfield.min.js"></script>
-
-<script>
-  $(document).ready(function() {
-
-    // Add multiple email address input field
-    $('#InputEmail')
-    .on('tokenfield:createtoken', function (e) {
-      var data = e.attrs.value.split('|')
-      e.attrs.value = data[1] || data[0]
-      e.attrs.label = data[1] ? data[0] + ' (' + data[1] + ')' : data[0]
-    })
-
-    .on('tokenfield:createdtoken', function (e) {
-      // Über-simplistic e-mail validation
-      var re = /\S+@\S+\.\S+/
-      var valid = re.test(e.attrs.value)
-      if (!valid) {
-        $(e.relatedTarget).addClass('invalid')
-      }
-    })
-
-    .on('tokenfield:edittoken', function (e) {
-      if (e.attrs.label !== e.attrs.value) {
-        var label = e.attrs.label.split(' (')
-        e.attrs.value = label[0] + '|' + e.attrs.value
-      }
-    })
-    .tokenfield();
-    
-  });
-</script>
 
 <!-- End Content -->
