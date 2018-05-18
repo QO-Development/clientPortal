@@ -162,8 +162,9 @@
               e.attrs.value = label[0] + '|' + e.attrs.value
             }
           })
-          .tokenfield();
-
+          .tokenfield({
+            delimiter: [',',' ']
+          });
       };
     
       // Map
