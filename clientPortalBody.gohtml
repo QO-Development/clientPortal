@@ -1,27 +1,6 @@
 <link rel="stylesheet" href="/css/serviceRequestForm.css">
 <link rel="stylesheet" href="/css/bootstrap-tokenfield.css">
 
-<script>
-  window.initMap = function () {
-    window.map = null;
-    window.marker = null;
-    window.gecoder = null;
-    var uluru = {
-      lat: 36,
-      lng: -119
-    };
-    window.map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: uluru
-    });
-    window.marker = new google.maps.Marker({
-      position: uluru,
-      map: window.map
-    });
-    window.geocoder = new google.maps.Geocoder();
-  };
-</script>
-
 <!-- Start Content -->
 <div id="main" class="clearfix">
   <div class="container">
@@ -192,5 +171,26 @@
 <script src="/js/form.js"></script>
 <script src="/js/manualServiceRequest.js"></script>
 <script src="/js/bootstrap-tokenfield.min.js"></script>
+
+<script>
+  window.initMap = function () {
+    window.map = null;
+    window.marker = null;
+    window.gecoder = null;
+    var uluru = {
+      lat: 36,
+      lng: -119
+    };
+    window.map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: uluru
+    });
+    window.marker = new google.maps.Marker({
+      position: uluru,
+      map: window.map
+    });
+    window.geocoder = new google.maps.Geocoder();
+  };
+</script>
 
 <!-- End Content -->
