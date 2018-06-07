@@ -22,11 +22,12 @@
         // Disables the submit button once the form has been submitted.
         $('#service-request-form').on('submit', function (e) {
           $('button[type=submit]').attr('disabled', 'disabled');
-
-          if (!selectedItem && $('#manualEntryForm').data('manualEntry') === false)
-            e.preventDefault();
-            $('#Input1').focus();
-            $('button[type=submit]').removeAttr('disabled');
+          
+          if (selectedItem == null && $('#manualEntryForm').data('manualEntry') == false) {
+              e.preventDefault();
+              $('#Input1').focus();
+              $('button[type=submit]').removeAttr('disabled');
+            }
         });
     
       });
@@ -142,24 +143,24 @@
 
         $('#InputEmail')
           .on('tokenfield:createtoken', function (e) {
-            var data = e.attrs.value.split('|')
-            e.attrs.value = data[1] || data[0]
-            e.attrs.label = data[1] ? data[0] + ' (' + data[1] + ')' : data[0]
+            var data = e.attrs.value.split('|');
+            e.attrs.value = data[1] || data[0];
+            e.attrs.label = data[1] ? data[0] + ' (' + data[1] + ')' : data[0];
           })
 
           .on('tokenfield:createdtoken', function (e) {
             // Über-simplistic e-mail validation
-            var re = /\S+@\S+\.\S+/
-            var valid = re.test(e.attrs.value)
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var valid = re.test(e.attrs.value);
             if (!valid) {
-              $(e.relatedTarget).addClass('invalid')
+              $(e.relatedTarget).addClass('invalid');
             }
           })
 
           .on('tokenfield:edittoken', function (e) {
             if (e.attrs.label !== e.attrs.value) {
-              var label = e.attrs.label.split(' (')
-              e.attrs.value = label[0] + '|' + e.attrs.value
+              var label = e.attrs.label.split(' (');
+              e.attrs.value = label[0] + '|' + e.attrs.value;
             }
           })
           .tokenfield({
